@@ -1,5 +1,7 @@
 # Project Setup and Package Initialization
 
+![HBNB Logo](part3/assets/images/log.png)
+
 ## Context
 
 Before diving into the implementation of the business logic and API endpoints, it's essential to have **a well-organized project structure**. A **clear** and **modular** organization will help maintain the codebase, make it easier to integrate new features, and **ensure that your application is scalable**.

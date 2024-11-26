@@ -1,6 +1,6 @@
 from flask import Flask, redirect
 from app.api import api_v1_blueprint
-from config import Config
+from part2.config import Config
 
 def create_app(config_class=Config):
     app = Flask(__name__)
