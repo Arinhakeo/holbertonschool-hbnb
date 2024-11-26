@@ -1,0 +1,27 @@
+./test_hbnb_complete.sh | tee test_results.log
+
+1. Configuration et nettoyage
+2. Tests de base (status/stats)
+3. Tests CRUD pour chaque modèle
+   - Tests positifs (créations réussies)
+   - Tests négatifs (erreurs attendues)
+4. Tests de relations
+   - State->City
+   - City->Place
+   - Place->Amenity (Many-to-Many)
+   - Place->Review
+5. Tests de validation
+   - Format email
+   - Champs requis
+   - Types de données
+6. Tests de recherche
+   - Différentes combinaisons de filtres
+7. Tests de cascade delete
+8. Rapport détaillé par section
+   - Nombre de tests
+   - % de réussite
+   - Erreurs rencontrées
+9. Synthèse finale
+   - Tableau récapitulatif
+   - Liste des endpoints non testés
+   - Suggestions d'amélioration

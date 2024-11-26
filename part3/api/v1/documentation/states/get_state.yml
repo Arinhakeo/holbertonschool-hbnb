@@ -1,0 +1,15 @@
+Retrieves a specific State
+---
+tags:
+  - States
+parameters:
+  - name: state_id
+    in: path
+    type: string
+    required: true
+    description: The unique identifier of the state
+responses:
+  200:
+    description: State found
+  404:
+    description: State not found

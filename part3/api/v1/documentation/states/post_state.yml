@@ -1,0 +1,18 @@
+Creates a new State
+---
+tags:
+  - States
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      properties:
+        name:
+          type: string
+          description: The name of the State
+responses:
+  201:
+    description: State created successfully
+  400:
+    description: Missing name or invalid JSON

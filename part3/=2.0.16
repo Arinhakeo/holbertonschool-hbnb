@@ -1,0 +1,11 @@
+Requirement already satisfied: sqlalchemy in ./venv/lib/python3.10/site-packages (1.4.23)
+Collecting sqlalchemy
+  Using cached SQLAlchemy-2.0.36-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+Requirement already satisfied: greenlet!=0.4.17 in ./venv/lib/python3.10/site-packages (from sqlalchemy) (3.1.1)
+Requirement already satisfied: typing-extensions>=4.6.0 in ./venv/lib/python3.10/site-packages (from sqlalchemy) (4.12.2)
+Installing collected packages: sqlalchemy
+  Attempting uninstall: sqlalchemy
+    Found existing installation: SQLAlchemy 1.4.23
+    Uninstalling SQLAlchemy-1.4.23:
+      Successfully uninstalled SQLAlchemy-1.4.23
+Successfully installed sqlalchemy-2.0.36
