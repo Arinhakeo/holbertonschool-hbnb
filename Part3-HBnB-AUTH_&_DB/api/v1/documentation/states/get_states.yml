@@ -1,0 +1,21 @@
+Get all states
+---
+tags:
+  - States
+responses:
+  200:
+    description: List of all states
+    schema:
+      type: array
+      items:
+        properties:
+          __class__:
+            type: string
+          created_at:
+            type: string
+          id:
+            type: string
+          name:
+            type: string
+          updated_at:
+            type: string

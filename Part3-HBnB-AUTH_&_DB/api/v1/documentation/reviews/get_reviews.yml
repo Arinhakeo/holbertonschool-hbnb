@@ -1,0 +1,15 @@
+Get all reviews of a Place
+---
+tags:
+  - Reviews
+parameters:
+  - name: place_id
+    in: path
+    type: string
+    required: true
+    description: The place's ID
+responses:
+  200:
+    description: List of reviews
+  404:
+    description: Place not found
