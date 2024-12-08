@@ -1,0 +1,187 @@
+/* Styles globaux */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Police globale pour tout le site */
+}
+
+body, html {
+    height: 100%; /* Assurez-vous que le corps et le HTML couvrent toute la hauteur */
+}
+/* Styles pour le corps de la page */
+body {
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    background-color: #0091ff; /* Couleur de fond de la page */
+    font-family: Arial, sans-serif;
+    flex-direction: column; /* Organise les éléments en colonne */
+    justify-content: space-between; /* Sépare les éléments pour que le footer soit en bas */
+}
+
+/* En-tête de la page */
+.header {
+    display: flex;
+    align-items: center; /* Aligne verticalement les éléments */
+    justify-content: space-between; /* Espace entre le logo et le reste */
+    width: 100%;
+    background-color: #ff6f00;
+    color: rgb(255, 255, 255);
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 60px; /* Ajustez la taille selon vos besoins */
+    margin-left: 1rem; /* Espacement entre le logo et le texte */
+}
+/* Liens de navigation */
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 0 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Effet visuel au survol */
+}
+
+/* Contenu principal */
+main {
+    padding: 2rem;
+    margin-top: 80px; /* Espace pour que le contenu ne chevauche pas l'en-tête */
+    flex-grow: 1; /* Permet au contenu principal de prendre l'espace restant */
+    padding: 2rem;
+}
+
+footer {
+    position: relative;
+    align-items: center;
+    background-color: #ffffff00;
+    color: white;
+    padding: 1rem;
+}
+
+/* Styles pour les titres */
+h1, h2 {
+    margin-bottom: 1rem; /* Espace en dessous des titres */
+}
+
+/* Styles pour les conteneurs */
+.login-container, .register-container {
+    text-align: center; /* Centre le texte à l'intérieur */
+    padding: 2rem;
+    background-color: #fef9d8; /* Couleur de fond du login */
+    box-shadow: 0 10px 16px rgba(58, 29, 29, 0.1); /* Ombre pour l'esthétique */
+    border-radius: 20px; /* Coins arrondis */
+}
+
+.register-container {
+    max-width: 400px;
+    margin: 40px auto;
+    background-color: rgb(244, 230, 211); /* Spécifique à l'inscription */
+}
+
+/* Styles pour les étiquettes de formulaire */
+label {
+    display: block; /* Chaque étiquette occupe toute la largeur */
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #484848;
+}
+
+/* Styles pour les champs de saisie */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Styles pour les boutons */
+button, .register-button {
+    width: 100%;
+    padding: 14px;
+    background-color: #05ad4d; /* Couleur de fond du bouton */
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition pour le survol */
+}
+
+button:hover, .register-button:hover {
+    background-color: #2e2b68; /* Couleur de fond au survol */
+}
+
+/* Styles pour les liens d'inscription/connexion */
+.login-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #008489;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour les messages d'erreur */
+.error-message {
+    color: #FF385C;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Styles pour les groupes de cases à cocher */
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-top: 4px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Styles pour les indices de mot de passe */
+.password-hint {
+    display: block;
+    margin-top: 5px;
+    color: #717171;
+    font-size: 12px;
+}
+/*palces*/
+
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.place-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.place-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.details-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}

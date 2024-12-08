@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HBnB - Inscription</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<div id="header-placeholder"></div>
+<script>
+    fetch('../html/header.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erreur de réseau.');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Erreur lors de l\'inclusion de l\'en-tête:', error);
+        });
+</script>
+<body>
+    <header class="header">
+        <img src="../images/logo.png" alt="Logo HBnB" class="logo">
+        <h1>Bienvenue</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À propos</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="register-container">
+        <form id="register-form">
+            <h2>Créer un compte HBnB</h2>
+            <!-- Informations personnelles -->
+            <div class="form-group">
+                <label for="firstName">Prénom</label>
+                <input type="text" id="firstName" name="firstName" required placeholder="Votre prénom">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Nom</label>
+                <input type="text" id="lastName" name="lastName" required placeholder="Votre nom">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="votre-email@exemple.com">
+            </div>
+            <div class="form-group">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="tel" id="phone" name="phone" required placeholder="+33 6 12 34 56 78">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Date de naissance</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Adresse</label>
+                <input type="text" id="address" name="address" required placeholder="Votre adresse">
+            </div>
+            <div class="form-group">
+                <label for="city">Ville</label>
+                <input type="text" id="city" name="city" required placeholder="Votre ville">
+            </div>
+            <div class="form-group">
+                <label for="postalCode">Code postal</label>
+                <input type="text" id="postalCode" name="postalCode" required placeholder="12345">
+            </div>
+            <div class="form-group">
+                <label for="country">Pays</label>
+                <select id="country" name="country" required>
+                    <option value="">Sélectionnez un pays</option>
+                    <option value="FR">France</option>
+                    <option value="BE">Belgique</option>
+                    <option value="CH">Suisse</option>
+                    <!-- Ajoutez d'autres pays selon vos besoins -->
+                </select>
+            </div>
+            <!-- Mot de passe -->
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" required placeholder="********">
+            </div>
+            <small class="password-hint">8 caractères minimum, incluant majuscules, minuscules et chiffres</small>
+            <div class="form-group">
+                <label for="confirmPassword">Confirmer le mot de passe</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="********">
+            </div>
+            <!-- Conditions d'utilisation -->
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">J'accepte les conditions d'utilisation et la politique de confidentialité</label>
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Je souhaite recevoir les offres et actualités par email</label>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="register-button">Créer mon compte</button>
+                <a href="login.html" class="login-link">Déjà inscrit ? Connectez-vous</a>
+            </div>
+            <div id="register-error" class="error-message"></div>
+        </form>
+    </div>
+    <footer>
+        <p>© 2024 HBnB - Tous droits réservés</p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

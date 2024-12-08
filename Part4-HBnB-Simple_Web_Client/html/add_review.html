@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<div id="header-placeholder"></div>
+    <body>
+    <style>
+        .star {
+            font-size: 30px;
+            cursor: pointer;
+            color: gold;
+        }
+        .star.selected {
+            color: gold;
+        }
+    </style>
+    <div id="header-placeholder"></div>
+    <header class="header">
+        <img src="../images/logo.png" alt="Logo HBnB" class="logo">
+
+        <h1>Bienvenue sur HBnB</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+        </nav>
+    </header>
+</head>
+<body>
+    <main>
+        <form id="review-form">
+            <h2>Ajouter un avis</h2>
+            <label for="review">Votre avis :</label>
+            <textarea id="review" name="review" required></textarea>
+            <label for="rating">Note :</label>
+            <div id="rating">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+            <input type="hidden" id="rating-value" name="rating" required>
+            <button type="submit">Soumettre l'avis</button>
+        </form>
+    </main>
+    <script>
+        const stars = document.querySelectorAll('.star');
+        const ratingValue = document.getElementById('rating-value');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                stars.forEach(s => s.classList.remove('selected'));
+                star.classList.add('selected');
+                ratingValue.value = star.getAttribute('data-value');
+            });
+        });
+    </script>
+    <footer>
+        <p>© 2024 HBnB - Tous droits réservés</p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>
