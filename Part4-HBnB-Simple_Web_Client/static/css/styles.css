@@ -58,58 +58,37 @@ body, html {
 
 /* ==== STYLE DU FOOTER GLOBAL ==== */
 /* Footer fixé en bas avec disposition en trois colonnes */
+/* ==== STYLE DU FOOTER GLOBAL ==== */
 .footer_ep {
     background-color: white;
     padding: 20px;
-    position: fixed;           /* Fixe le footer en bas */
-    bottom: 0;                /* Colle au bas de la fenêtre */
-    left: 0;                  /* Aligne à gauche */
-    width: 100%;             /* Prend toute la largeur */
-    display: flex;           /* Permet la disposition en 3 colonnes */
-    justify-content: space-between;  /* Espace entre les éléments */
-    align-items: center;     /* Centre verticalement */
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);  /* Ombre au-dessus */
-    z-index: 1000;          /* Assure qu'il reste au-dessus du contenu */
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;               /* Pour aligner les 3 sections */
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;           /* Pousse le footer en bas */
+    position: relative;         /* Au lieu de fixed */
 }
 
-/* Zone copyright (gauche) */
-.footer_ep .copyright {
-    flex: 1;                /* Prend un tiers de l'espace */
+/* Partie gauche - Copyright */
+.copyright {
+    flex: 1;
     text-align: left;
     padding-left: 20px;
 }
 
-/* Zone navigation (centre) */
+/* Partie centrale - Navigation */
 .footer_ep nav {
-    flex: 1;                /* Prend un tiers de l'espace */
+    flex: 1;
     text-align: center;
 }
 
-/* Liens du footer */
-.footer_ep nav .footer-link {
-    color: #333;
-    text-decoration: none;
-    margin: 0 15px;
-}
-
-/* Zone réseaux sociaux (droite) */
-.footer_ep .social-links {
-    flex: 1;               /* Prend un tiers de l'espace */
+/* Partie droite - Liens sociaux */
+.social-links {
+    flex: 1;
     text-align: right;
     padding-right: 20px;
-}
-
-/* Style des icônes de réseaux sociaux */
-.social-links a {
-    margin: 0 10px;
-    color: #333;
-    font-size: 20px;
-}
-
-/* Effet au survol des liens */
-.footer_ep nav .footer-link:hover,
-.social-links a:hover {
-    color: #007bff;
 }
 
 /* ==== RESPONSIVE DESIGN ==== */

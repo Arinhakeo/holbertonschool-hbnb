@@ -1,13 +1,13 @@
 /* ==== STYLE DU CONTENEUR PRINCIPAL ==== */
 /* Ce conteneur englobe tout le formulaire d'inscription */
 .register-container {
-    width: 90%;                          /* Prend 90% de la largeur de l'écran */
+    width: 8090%;                          /* Prend 90% de la largeur de l'écran */
     max-width: 800px;                    /* Ne dépassera jamais 800px de large */
-    margin: 120px auto 150px auto;       /* Marges : haut droite bas gauche (sens horaire) */
-    background-color: white;             /* Fond blanc */
+    margin: 80px auto 50px auto;     /* Marges : haut droite bas gauche (sens horaire) */
+    background-color: rgba(222, 188, 174, 0.849);             /* Fond blanc */
     padding: 40px;                       /* Espacement intérieur de 40px */
     border-radius: 15px;                 /* Coins arrondis */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée : x y flou couleur */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Ombre portée : x y flou couleur */
 }
 
 /* ==== STYLE DU FORMULAIRE ==== */
@@ -23,7 +23,7 @@
     text-align: center;                  /* Centre le texte */
     color: #333;                         /* Couleur gris foncé */
     margin-bottom: 30px;                 /* Espace sous le titre */
-    font-size: 24px;                     /* Taille de la police */
+    font-size: 50px;                     /* Taille de la police */
 }
 
 /* ==== STYLE DES GROUPES DE CHAMPS ==== */
@@ -78,8 +78,8 @@
 .register-button {
     width: 100%;                         /* Prend toute la largeur */
     padding: 14px;                       /* Espacement intérieur */
-    background-color: #007bff;           /* Fond bleu */
-    color: white;                        /* Texte blanc */
+    background-color: #007bff;         /* Fond bleu */
+    color: rgb(255, 255, 255);         /* Texte blanc */
     border: none;                        /* Pas de bordure */
     border-radius: 8px;                  /* Coins arrondis */
     font-size: 16px;                     /* Taille de la police */
@@ -91,7 +91,13 @@
 .register-button:hover {
     background-color: #0056b3;           /* Bleu plus foncé au survol */
 }
-
+/* Phrase "Déjà inscrit ? Connectez-vous" */
+.login-link {
+    color: rgb(255, 255, 255); 
+    font-size: 25px;  
+    display: 50%;
+    gap: 10px;                          /* Espace entre la case et le texte */
+}
 /* ==== ADAPTATION MOBILE ==== */
 /* Ces styles s'appliquent sur les écrans de moins de 768px */
 @media (max-width: 768px) {
