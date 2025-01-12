@@ -67,24 +67,40 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     // Ajoutez ici le reste de votre code pour utiliser ces données
-    function afficherPlaces() {
-        const conteneurPlaces = document.getElementById('places-container');
-        conteneurPlaces.innerHTML = ''; // Nettoie le contenu existant
-
+    function displayPlaces(places) {
+        const placesContainer = document.getElementById('places-container');
+        placesContainer.innerHTML = '';
+    
         places.forEach(place => {
-            const elementPlace = document.createElement('div');
-            elementPlace.className = 'place';
-            elementPlace.innerHTML = `
-                <h3>${place.name}</h3>
-                <p>Hôte : ${place.host}</p>
-                <p>Prix : ${place.price}€ par nuit</p>
-                <p>${place.description}</p>
-                <button onclick="afficherDetails(${place.id})">Voir les détails</button>
+            const placeElement = document.createElement('article');
+            placeElement.className = 'place';
+            placeElement.innerHTML = `
+                <h2>${place.name}</h2>
+                <div class="price_by_night">€${place.price_by_night}</div>
+                <div class="information">
+                    <div class="max_guest">
+                        <i class="fas fa-users"></i>
+                        ${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''}
+                    </div>
+                    <div class="number_rooms">
+                        <i class="fas fa-bed"></i>
+                        ${place.number_rooms} Bedroom${place.number_rooms !== 1 ? 's' : ''}
+                    </div>
+                    <div class="number_bathrooms">
+                        <i class="fas fa-bath"></i>
+                        ${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''}
+                    </div>
+                </div>
+                <div class="description">${place.description}</div>
+                <div class="actions">
+                    <button onclick='afficherDetails(${JSON.stringify(place)})' class="view-details">
+                        Voir les détails
+                    </button>
+                </div>
             `;
-            conteneurPlaces.appendChild(elementPlace);
+            placesContainer.appendChild(placeElement);
         });
     }
-
     // Fonction pour afficher les places
 function afficherPlaces() {
     const conteneurPlaces = document.getElementById('places-container');
@@ -155,3 +171,57 @@ function afficherPlacesFiltrees(placesFiltrees) {
         });
     }
 });
+// Fonction pour afficher les détails d'une place
+function afficherDetails(place) {
+    const detailsContainer = document.getElementById('place-details');
+    
+    const detailsHTML = `
+        <div class="modal-content">
+            <span class="close-button" onclick="fermerDetails()">&times;</span>
+            <h2>${place.name}</h2>
+            <div class="details-content">
+                <div class="host-info">
+                    <p><strong>Hôte:</strong> ${place.host}</p>
+                </div>
+                <div class="price">
+                    <p><strong>Prix:</strong> ${place.price}€ par nuit</p>
+                </div>
+                <div class="description">
+                    <h3>Description</h3>
+                    <p>${place.description}</p>
+                </div>
+                <div class="amenities">
+                    <h3>Équipements</h3>
+                    <ul>
+                        ${place.amenities.map(amenity => `<li>${amenity}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="reviews">
+                    <h3>Avis</h3>
+                    ${place.reviews.map(review => `
+                        <div class="review">
+                            <p><strong>${review.author}</strong> - Note: ${review.rating}/5</p>
+                            <p>${review.comment}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+    
+    detailsContainer.innerHTML = detailsHTML;
+    detailsContainer.style.display = 'block';
+}
+
+// Fonction pour fermer la modal de détails
+function fermerDetails() {
+    document.getElementById('place-details').style.display = 'none';
+}
+
+// Fermeture au clic en dehors de la modal
+window.onclick = function(event) {
+    const modal = document.getElementById('place-details');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}

@@ -11,10 +11,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    background-color: rgba(255, 0, 0, 0);
+    padding: 0px;
     z-index: 1000;                    /* S'assure que le header reste au-dessus */
-    height: 80px;                     /* Hauteur fixe du header */
+    height: top;                     /* Hauteur fixe du header */
 }
 
 /* ==== STYLE DU FILTRE DE PRIX ==== */
@@ -60,82 +60,90 @@
 }
 /* ==== STYLES POUR LA PAGE D'ACCUEIL (PLACES) ==== */
 
-/* Configuration de la grille principale qui contient toutes les places
-   Cette grille utilise CSS Grid pour organiser les cartes en 3 colonnes */
-   .places-grid {
-    display: grid;                                /* Active le mode grille CSS */
-    grid-template-columns: repeat(3, 1fr);        /* Crée 3 colonnes de taille égale */
-    gap: 30px;                                   /* Espace entre les cartes */
-    width: 90%;                                  /* Prend 90% de la largeur disponible */
-    max-width: 1200px;                            /* Largeur maximale pour grands écrans */
-    padding-bottom: 100px;                         /* Espace supplémentaire en bas */
-    margin: 20px auto 120px auto;                   /* 120px en bas pour le footer */
-    position: relative;                             /* Pour bon positionnement */
+/* Style des places */
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 100px;
+    margin: 100px auto 60px auto;
+    max-width: 1200px;
 }
 
-/* Style de chaque carte individuelle de place
-   Chaque carte est un conteneur flex pour organiser son contenu verticalement */
 .place {
-    background: white;                           /* Fond blanc */
-    border-radius: 10px;                         /* Coins arrondis */
-    padding: 20px;                               /* Espace intérieur */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);      /* Ombre légère pour effet de profondeur */
-    text-align: left;                            /* Alignement du texte à gauche */
-    display: flex;                               /* Organisation verticale du contenu */
-    flex-direction: column;                      /* Empilement des éléments */
-    gap: 15px;                                   /* Espace entre les éléments */
+    background: rgb(151, 220, 239);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Zone d'information avec les icônes (personnes, chambres, salles de bain)
-   Utilise flexbox pour aligner les éléments horizontalement */
-.information {
-    display: flex;                               /* Alignement horizontal */
-    justify-content: space-around;               /* Répartit l'espace entre les éléments */
-    padding: 15px 0;                             /* Espace vertical */
-    border-top: 1px solid #ddd;                  /* Ligne de séparation haute */
-    border-bottom: 1px solid #ddd;               /* Ligne de séparation basse */
-    margin: 10px 0;                              /* Marge verticale */
+.place h2 {
+    margin: 0 0 15px 0;
+    color: #333;
 }
 
-/* Style du prix par nuit
-   Mise en évidence avec une couleur et taille spécifiques */
 .price_by_night {
-    color: #FF5A5F;                             /* Rouge spécifique à l'application */
-    font-size: 24px;                            /* Grande taille de police */
-    font-weight: bold;                          /* Texte en gras */
+    color: #FF5A5F;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
-/* Zone des boutons d'action
-   Positionnée en bas de la carte */
-.actions {
-    margin-top: auto;                           /* Force le positionnement en bas */
+.information {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 15px 0;
 }
 
-/* Style du bouton d'action */
-.actions button {
-    width: 100%;                                /* Prend toute la largeur */
-    padding: 10px;                              /* Espacement intérieur */
-    background-color: #007bff;                  /* Bleu */
-    color: white;                               /* Texte blanc */
-    border: none;                               /* Pas de bordure */
-    border-radius: 5px;                         /* Coins arrondis */
-    cursor: pointer;                            /* Curseur main au survol */
+.description {
+    margin: 15px 0;
+    color: #666;
 }
 
-/* ==== ADAPTATIONS POUR DIFFÉRENTES TAILLES D'ÉCRAN ==== */
+/* Style de la modal */
+.modal-details {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
 
-/* Pour les tablettes */
+.modal-content {
+    position: relative;
+    background-color: #ffffff;
+    margin: 50px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.close-button {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Responsive */
 @media (max-width: 1200px) {
     .places-grid {
-        grid-template-columns: repeat(2, 1fr);   /* Passe à 2 colonnes */
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Pour les mobiles */
 @media (max-width: 768px) {
     .places-grid {
-        grid-template-columns: 1fr;              /* Une seule colonne */
-        width: 95%;                              /* Légèrement plus large */
-        gap: 20px;                               /* Espace réduit entre les cartes */
+        grid-template-columns: 1fr;
     }
 }

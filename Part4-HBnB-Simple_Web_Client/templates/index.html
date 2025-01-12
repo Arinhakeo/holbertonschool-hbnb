@@ -37,7 +37,14 @@
     <div class="places-grid" id="places-container">
         <!-- Le JavaScript remplira cette section -->
     </div>
-
+    <div id="place-details" style="display: none;" class="modal-details">
+        <div class="modal-content">
+            <span class="close-button" onclick="fermerDetails()">&times;</span>
+            <div class="details-content">
+                <!-- Le contenu sera injecté par JavaScript -->
+            </div>
+        </div>
+    </div>
     <!-- Footer restructuré -->
     <footer class="footer_ep">
         <div class="copyright">
@@ -58,5 +65,7 @@
 
     <!-- Scripts -->
     <script src="../static/js/script.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/place_details.js"></script>
 </body>
 </html>

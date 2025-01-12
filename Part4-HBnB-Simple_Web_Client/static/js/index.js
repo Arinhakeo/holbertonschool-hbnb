@@ -1,38 +1,49 @@
-// index.html
-
+// ==== GESTIONNAIRE DES PLACES ====
+// Classe principale qui gère toute la logique des locations
 class PlacesManager {
+    // Constructeur : initialise les propriétés de base
     constructor(apiUrl) {
+        // URL de l'API pour les requêtes
         this.apiUrl = apiUrl;
-        this.placesList = document.getElementById('places-list');
-        this.priceFilter = document.getElementById('price-filter');
-        this.loginLink = document.getElementById('login-link');
+        // Éléments du DOM nécessaires
+        this.placesList = document.getElementById('places-list');           // Conteneur des places
+        this.priceFilter = document.getElementById('price-filter');         // Filtre de prix
+        this.loginLink = document.getElementById('login-link');             // Lien de connexion
+        // Tableau qui stockera toutes les places
         this.places = [];
 
+        // Initialisation des écouteurs d'événements et vérification de l'authentification
         this.initEventListeners();
         this.checkAuthentication();
     }
 
-    // Méthode pour initialiser les écouteurs d'événements
+    // ==== INITIALISATION DES ÉVÉNEMENTS ====
     initEventListeners() {
-        // Ajout de l'écouteur pour le filtre de prix
+        // Ajoute un écouteur sur le changement du filtre de prix
         this.priceFilter.addEventListener('change', () => this.filterPlaces());
     }
 
+    // ==== GESTION DE L'AUTHENTIFICATION ====
+    // Vérifie si l'utilisateur est connecté
     async checkAuthentication() {
         const token = this.getToken();
 
         if (token) {
+            // Si token présent, cache le lien de connexion et charge les places
             this.loginLink.style.display = 'none';
             await this.fetchPlaces(token);
         } else {
+            // Sinon affiche le lien de connexion
             this.loginLink.style.display = 'block';
         }
     }
 
+    // Récupère le token d'authentification
     getToken() {
         return this.getCookie('token');
     }
 
+    // Récupère un cookie spécifique par son nom
     getCookie(name) {
         const cookieArr = document.cookie.split(";");
         for (let cookie of cookieArr) {
@@ -44,6 +55,8 @@ class PlacesManager {
         return null;
     }
 
+    // ==== RÉCUPÉRATION DES PLACES ====
+    // Charge les places depuis l'API
     async fetchPlaces(token) {
         try {
             const response = await fetch(`${this.apiUrl}/places`, {
@@ -65,20 +78,23 @@ class PlacesManager {
         }
     }
 
+    // ==== AFFICHAGE DES PLACES ====
+    // Affiche toutes les places dans la liste
     renderPlaces(places) {
-        this.placesList.innerHTML = ''; // Vider la liste actuelle
-
+        this.placesList.innerHTML = ''; // Vide la liste actuelle
         places.forEach(place => {
             const placeCard = this.createPlaceCard(place);
             this.placesList.appendChild(placeCard);
         });
     }
 
+    // Crée une carte pour une place individuelle
     createPlaceCard(place) {
         const card = document.createElement('div');
         card.classList.add('place-card');
         card.dataset.price = place.price;
 
+        // Structure HTML de la carte
         card.innerHTML = `
             <img src="${place.image || 'placeholder.jpg'}" alt="${place.name}">
             <h3>${place.name}</h3>
@@ -89,19 +105,22 @@ class PlacesManager {
             </button>
         `;
 
+        // Ajoute l'événement pour voir les détails
         const detailsButton = card.querySelector('.details-button');
         detailsButton.addEventListener('click', () => this.navigateToDetails(place.id));
 
         return card;
     }
 
+    // ==== FILTRAGE DES PLACES ====
+    // Filtre les places selon le prix sélectionné
     filterPlaces() {
         const selectedPrice = this.priceFilter.value;
         const placeCards = document.querySelectorAll('.place-card');
 
         placeCards.forEach(card => {
             const price = parseFloat(card.dataset.price);
-
+            // Affiche ou cache selon le filtre
             if (selectedPrice === 'all' || price <= parseFloat(selectedPrice)) {
                 card.style.display = 'block';
             } else {
@@ -110,10 +129,14 @@ class PlacesManager {
         });
     }
 
+    // ==== NAVIGATION ====
+    // Redirige vers la page de détails d'une place
     navigateToDetails(placeId) {
         window.location.href = `place.html?id=${placeId}`;
     }
 
+    // ==== GESTION DES ERREURS ====
+    // Gère les différentes erreurs possibles
     handleFetchError(response) {
         switch(response.status) {
             case 401:
@@ -131,17 +154,21 @@ class PlacesManager {
         }
     }
 
+    // ==== DÉCONNEXION ====
+    // Déconnecte l'utilisateur
     logout() {
         document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         window.location.href = 'login.html';
     }
 }
 
-// Code principal pour la page d'accueil
+// ==== CODE PRINCIPAL ====
+// Charge les places au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
     loadPlaces();
 });
 
+// Fonction de chargement des places
 async function loadPlaces() {
     try {
         const response = await fetch(`${CONFIG.API_URL}/places`);
@@ -152,6 +179,7 @@ async function loadPlaces() {
     }
 }
 
+// Fonction d'affichage des places
 function displayPlaces(places) {
     const container = document.getElementById('places-container');
     container.innerHTML = places.map(place => `
@@ -161,4 +189,7 @@ function displayPlaces(places) {
             <div class="price">${utils.formatPrice(place.price_by_night)}</div>
         </div>
     `).join('');
-};
+}
+
+// Pour utiliser cette classe :
+// const placesManager = new PlacesManager('http://votre-api-url');

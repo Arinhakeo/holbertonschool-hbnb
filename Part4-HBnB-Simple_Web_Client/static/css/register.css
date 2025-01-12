@@ -1,10 +1,21 @@
 /* ==== STYLE DU CONTENEUR PRINCIPAL ==== */
 /* Ce conteneur englobe tout le formulaire d'inscription */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    padding: 20px;
+    z-index: 1000;                    /* S'assure que le header reste au-dessus */
+    height: 80px;                     /* Hauteur fixe du header */
+}
+
 .register-container {
-    width: 8090%;                          /* Prend 90% de la largeur de l'écran */
+    width: 50%;                          /* Prend 90% de la largeur de l'écran */
     max-width: 800px;                    /* Ne dépassera jamais 800px de large */
     margin: 80px auto 50px auto;     /* Marges : haut droite bas gauche (sens horaire) */
-    background-color: rgba(222, 188, 174, 0.849);             /* Fond blanc */
+    background-color: rgba(222, 209, 174, 0.849);             /* Fond blanc */
     padding: 40px;                       /* Espacement intérieur de 40px */
     border-radius: 15px;                 /* Coins arrondis */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Ombre portée : x y flou couleur */
@@ -90,13 +101,22 @@
 /* Effet au survol du bouton */
 .register-button:hover {
     background-color: #0056b3;           /* Bleu plus foncé au survol */
+    padding: 10px 20px; /* Espacement à l'intérieur du bouton */
+}
+
+.form-actions {
+    display: flex; /* Utiliser flexbox */
+    flex-direction: column; /* Aligner les éléments en colonne */
+    align-items: center; /* Centrer horizontalement */
+    margin-top: 20px; /* Espace au-dessus du conteneur */
 }
 /* Phrase "Déjà inscrit ? Connectez-vous" */
 .login-link {
     color: rgb(255, 255, 255); 
-    font-size: 25px;  
-    display: 50%;
-    gap: 10px;                          /* Espace entre la case et le texte */
+    font-size: 20px;
+    margin-top: 15px; /* Espace au-dessus du lien */
+    text-align: center; /* Centrer le texte */
+    
 }
 /* ==== ADAPTATION MOBILE ==== */
 /* Ces styles s'appliquent sur les écrans de moins de 768px */

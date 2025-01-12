@@ -9,7 +9,7 @@
 /* ==== CONFIGURATION DE BASE DU CORPS ET HTML ==== */
 body, html {
     height: 100%;                        /* Force la hauteur à 100% de la fenêtre */
-    background-color: #ffeabe;           /* Couleur de fond beige clair */
+    background-color: hsl(41, 100%, 87%);           /* Couleur de fond beige clair */
 }
 
 /* ==== STYLE DU HEADER GLOBAL ==== */
@@ -19,9 +19,9 @@ body, html {
     align-items: center;         /* Alignement vertical au centre */
     justify-content: space-between; /* Espace entre les éléments */
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    color: rgb(0, 0, 0);
-    padding: 0px;
+    background-color: blue;
+    color: rgb(0, 11, 92);
+    padding: 20px;
     position: fixed;             /* Position fixe en haut */
     top: 0;
     left: 0;
@@ -61,7 +61,7 @@ body, html {
 /* ==== STYLE DU FOOTER GLOBAL ==== */
 .footer_ep {
     background-color: white;
-    padding: 20px;
+    padding: 5px;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
     display: flex;               /* Pour aligner les 3 sections */
@@ -82,15 +82,52 @@ body, html {
 .footer_ep nav {
     flex: 1;
     text-align: center;
+    padding-right: 30px;
+}
+
+.content-wrapper {
+    flex: 1;                    /* Prend tout l'espace disponible */
+    display: flex;
+    align-items: center;        /* Centre verticalement le login */
+    justify-content: center;    /* Centre horizontalement */
+    padding: 20px;
 }
 
 /* Partie droite - Liens sociaux */
 .social-links {
     flex: 1;
     text-align: right;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 
+.modal-details {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow-y: auto;
+}
+
+.modal-details .modal-content {
+    background-color: white;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    position: relative;
+}
+
+.modal-details .close-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
 /* ==== RESPONSIVE DESIGN ==== */
 @media (max-width: 768px) {
     .header {

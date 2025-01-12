@@ -1,20 +1,43 @@
 /* ==== STYLE DU CONTENEUR PRINCIPAL ==== */
+.body {
+    margin: 0; /* Supprimer les marges par défaut */
+    height: 100vh; /* Hauteur de la page */
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    overflow: hidden; /* Supprimer la barre de défilement */
+    background-color: #f1f1f1; /* Couleur d'arrière-plan */
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    padding: 20px;
+    z-index: 1000;                    /* S'assure que le header reste au-dessus */
+    height: 80px;                     /* Hauteur fixe du header */
+}
+
 .content-wrapper {
-    min-height: 100vh;            /* Prend toute la hauteur de la fenêtre */
+    margin: flex;
     display: flex;                /* Utilise flexbox pour le centrage */
     justify-content: center;      /* Centre horizontalement */
     align-items: center;          /* Centre verticalement */
     padding: 100px 20px;         /* Espace pour le header et padding sur les côtés */
+
 }
 
 /* ==== STYLE DU CONTENEUR DE CONNEXION ==== */
 .login-container {
+    height: 400px; /* Ajuster la hauteur */
     width: 90%;                  /* Prend 90% de la largeur du parent */
-    max-width: 400px;            /* Largeur maximale de 400px */
+    max-width: 300px;            /* Largeur maximale de 400px */
     background-color: white;      /* Fond blanc */
     padding: 40px;               /* Espace intérieur */
     border-radius: 10px;         /* Coins arrondis */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin-top: 0px;
 }
 
 /* Titre du formulaire */

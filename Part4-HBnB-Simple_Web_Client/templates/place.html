@@ -3,89 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Places</title>
-    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Gestion des Locations - HBnB</title>
+    <!-- Importation des fichiers CSS -->
+    <link rel="stylesheet" href="../static/css/styles.css">          <!-- Styles globaux -->
+    <link rel="stylesheet" href="../static/css/place.css">           <!-- Styles spécifiques -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Icônes -->
 </head>
 <body>
+    <!-- En-tête avec navigation -->
     <header class="header">
-        <img src="../static/images/logo.png" alt="Logo HBnB" class="logo">
-        <h1>Bienvenue sur HBnB</h1>
+        <a href="index.html">
+            <img src="../static/images/logo.png" alt="Logo HBnB" class="logo">
+        </a>
+        <h1>Gestion de mes Locations</h1>
         <nav>
-            <a href="index.html">Accueil</a>
+            <button onclick="location.href='index.html'" class="nav-button">
+                <i class="fas fa-home"></i> Retour à l'accueil
+            </button>
         </nav>
     </header>
 
-    <main>
-        <h1>Available Places</h1>
-        <section class="filters">
-            <div class="price-filter">
-                <select id="price-filter">
-                        <option value="all">All</option>
-                        <option value="100">Max €100</option>
-                        <option value="150">Max €150</option>
-                        <option value="200">Max €200</option>
-                        <option value="300">Max €300</option>
-                </select>
+    <main class="places-management">
+        <!-- Barre d'outils de gestion -->
+        <div class="management-bar">
+            <h2>Mes Locations</h2>
+            <button class="add-place-btn" onclick="showAddPlaceForm()">
+                <i class="fas fa-plus-circle"></i> Ajouter une Location
+            </button>
+        </div>
+
+        <!-- Formulaire d'ajout/modification de place (caché par défaut) -->
+        <div id="place-form-container" class="form-modal" style="display: none;">
+            <div class="modal-content">
+                <h3 class="form-title">
+                    <span id="form-mode">Ajouter une nouvelle location</span>
+                    <span class="close-btn" onclick="hideForm()">&times;</span>
+                </h3>
+                <div id="place-form-container">
+                    <form id="place-form">
+                        <!-- Ajoutez cette section en haut du formulaire -->
+                        <div class="form-section photos-section">
+                            <h4><i class="fas fa-images"></i> Photos du logement</h4>
+                            <div class="photo-inputs">
+                                <div class="photo-upload-box primary">
+                                    <input type="file" accept="image/*" id="photo1" name="photo1" class="photo-input">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-camera"></i>
+                                        <p>Photo principale*</p>
+                                    </div>
+                                    <div class="preview"></div>
+                                </div>
+                                <div class="photo-upload-box">
+                                    <input type="file" accept="image/*" id="photo2" name="photo2" class="photo-input">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-camera"></i>
+                                        <p>Photo 2</p>
+                                    </div>
+                                    <div class="preview"></div>
+                                </div>
+                                <div class="photo-upload-box">
+                                    <input type="file" accept="image/*" id="photo3" name="photo3" class="photo-input">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-camera"></i>
+                                        <p>Photo 3</p>
+                                    </div>
+                                    <div class="preview"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                <form id="place-form" class="place-form">
+                    <!-- Section Photos -->
+                    <div class="form-section photos-section">
+                        <h4><i class="fas fa-images"></i> Photos du logement</h4>
+                        <div class="photo-grid">
+                            <!-- Zone de dépôt pour la photo principale -->
+                            <div class="photo-upload" data-index="1">
+                                <input type="file" 
+                                       class="photo-input" 
+                                       accept="image/*" 
+                                       onchange="previewImage(this)">
+                                <div class="upload-placeholder">
+                                    <i class="fas fa-camera"></i>
+                                    <p>Photo principale *</p>
+                                </div>
+                                <div class="image-preview"></div>
+                            </div>
+
+                            <!-- Zones pour photos supplémentaires -->
+                            <div class="photo-upload" data-index="2">
+                                <!-- Même structure que la photo principale -->
+                            </div>
+                            <div class="photo-upload" data-index="3">
+                                <!-- Même structure que la photo principale -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informations de base -->
+                    <div class="form-section basic-info">
+                        <h4><i class="fas fa-info-circle"></i> Informations de base</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom de la location *</label>
+                                <input type="text" 
+                                       id="name" 
+                                       required 
+                                       placeholder="Ex: Appartement cosy centre-ville">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Prix par nuit (€) *</label>
+                                <input type="number" 
+                                       id="price" 
+                                       required 
+                                       min="1" 
+                                       placeholder="Ex: 100">
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="description">Description détaillée *</label>
+                            <textarea id="description" 
+                                    required 
+                                    rows="4" 
+                                    placeholder="Décrivez votre logement..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Caractéristiques du logement -->
+                    <div class="form-section characteristics">
+                        <h4><i class="fas fa-home"></i> Caractéristiques</h4>
+                        <div class="form-row three-columns">
+                            <div class="form-group">
+                                <label for="max_guests">
+                                    <i class="fas fa-users"></i> Capacité *
+                                </label>
+                                <input type="number" 
+                                       id="max_guests" 
+                                       required 
+                                       min="1" 
+                                       placeholder="Nombre de personnes">
+                            </div>
+                            <div class="form-group">
+                                <label for="bedrooms">
+                                    <i class="fas fa-bed"></i> Chambres *
+                                </label>
+                                <input type="number" 
+                                       id="bedrooms" 
+                                       required 
+                                       min="1" 
+                                       placeholder="Nombre de chambres">
+                            </div>
+                            <div class="form-group">
+                                <label for="bathrooms">
+                                    <i class="fas fa-bath"></i> Salles de bain *
+                                </label>
+                                <input type="number" 
+                                       id="bathrooms" 
+                                       required 
+                                       min="1" 
+                                       placeholder="Nombre de SDB">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Équipements disponibles -->
+                    <div class="form-section amenities">
+                        <h4><i class="fas fa-concierge-bell"></i> Équipements</h4>
+                        <div class="amenities-grid">
+                            <!-- WiFi -->
+                            <label class="amenity-checkbox">
+                                <input type="checkbox" name="amenities" value="wifi">
+                                <i class="fas fa-wifi"></i>
+                                <span>WiFi</span>
+                            </label>
+                            <!-- TV -->
+                            <label class="amenity-checkbox">
+                                <input type="checkbox" name="amenities" value="tv">
+                                <i class="fas fa-tv"></i>
+                                <span>Télévision</span>
+                            </label>
+                            <!-- Cuisine -->
+                            <label class="amenity-checkbox">
+                                <input type="checkbox" name="amenities" value="kitchen">
+                                <i class="fas fa-utensils"></i>
+                                <span>Cuisine équipée</span>
+                            </label>
+                            <!-- Climatisation -->
+                            <label class="amenity-checkbox">
+                                <input type="checkbox" name="amenities" value="ac">
+                                <i class="fas fa-snowflake"></i>
+                                <span>Climatisation</span>
+                            </label>
+                            <!-- Parking -->
+                            <label class="amenity-checkbox">
+                                <input type="checkbox" name="amenities" value="parking">
+                                <i class="fas fa-parking"></i>
+                                <span>Parking</span>
+                            </label>
+                            <!-- Machine à laver -->
+                            <label class="amenity-checkbox">
+                                <input type="checkbox" name="amenities" value="washer">
+                                <i class="fas fa-tshirt"></i>
+                                <span>Lave-linge</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Boutons d'action -->
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" onclick="hideForm()">
+                            <i class="fas fa-times"></i> Annuler
+                        </button>
+                        <button type="submit" class="save-btn">
+                            <i class="fas fa-save"></i> Enregistrer
+                        </button>
+                    </div>
+                </form>
             </div>
-        </section>
+        </div>
 
-        <section id="places-list" class="places-grid">
-            <h2>Places</h2
-                <body>
-                    <h1>Place Details</h1>
-                    <!-- Ton contenu ici -->
-                
-                    <!-- Import du fichier JavaScript -->
-                    <script src="{{ url_for('static', filename='js/places_details.js') }}"></script>
-                </body>
-            <button id="add-place-btn">Ajouter une nouvelle place</button>
-            <form id="place-form" style="display: none;">
-                <input type="text" id="place-name" placeholder="Nom" required>
-                <input type="text" id="place-description" placeholder="Description" required>
-                <input type="number" id="place-price" placeholder="Prix par nuit" required>
-                <input type="number" id="place-rooms" placeholder="Nombre de chambres" required>
-                <input type="number" id="place-bathrooms" placeholder="Nombre de salles de bain" required>
-                <input type="number" id="place-max-guests" placeholder="Nombre maximal de personnes" required>
-                <button type="submit">Enregistrer la place</button>
-                <button type="button" id="cancel-btn">Annuler</button>
-            </form>
-
-            <div id="places-container"></div>
-        </section>
-        <a href="register.html" class="register-link">Pas de compte ? Inscrivez-vous</a>
+        <!-- Liste des locations existantes -->
+        <div id="places-list" class="places-grid">
+            <!-- Les places seront injectées ici via JavaScript -->
+        </div>
     </main>
 
+    <!-- Pied de page -->
     <footer class="footer_ep">
+        <div class="copyright">
+            <p>© 2024 HBnB - Tous droits non réservés</p>
+        </div>
         <nav>
-            <a href="about.html" class="footer-link">À propos</a>
-            <a href="contact.html" class="footer-link">Contact</a>
+            <a href="about.html">À propos</a>
+            <a href="contact.html">Contact</a>
         </nav>
-        <p>© 2024 HBnB - Tous droits non réservés</p>
         <div class="social-links">
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://github.com/Arinhakeo/holbertonschool-hbnb.git" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
         </div>
     </footer>
-    
-    <script src="../static/js/config.js"></script>
-    <script src="../static/js/utils.js"></script>
-    <script src="../static/js/register.js"></script>
+
+    <!-- Scripts JavaScript -->
     <script src="../static/js/place_details.js"></script>
-    <script src="../static/js/index.js"></script>
-    <script src="../static/js/script.js"></script>
-    <script>
-        document.getElementById('add-place-btn').addEventListener('click', () => {
-            document.getElementById('place-form').style.display = 'block';
-        });
-
-        document.getElementById('cancel-btn').addEventListener('click', () => {
-            document.getElementById('place-form').style.display = 'none';
-        });
-
-        // Ajouter d'autres logiques pour gérer l'ajout de nouvelles places
-    </script>
 </body>
 </html>
