@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="../static/images/logo.png" alt="Logo HBnB" class="logo">
+        <h1>Bienvenue sur HBnB</h1>
+        <nav>
+            <a href="index.html">Accueil</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Available Places</h1>
+        <section class="filters">
+            <div class="price-filter">
+                <select id="price-filter">
+                        <option value="all">All</option>
+                        <option value="100">Max €100</option>
+                        <option value="150">Max €150</option>
+                        <option value="200">Max €200</option>
+                        <option value="300">Max €300</option>
+                </select>
+            </div>
+        </section>
+
+        <section id="places-list" class="places-grid">
+            <h2>Places</h2
+                <body>
+                    <h1>Place Details</h1>
+                    <!-- Ton contenu ici -->
+                
+                    <!-- Import du fichier JavaScript -->
+                    <script src="{{ url_for('static', filename='js/places_details.js') }}"></script>
+                </body>
+            <button id="add-place-btn">Ajouter une nouvelle place</button>
+            <form id="place-form" style="display: none;">
+                <input type="text" id="place-name" placeholder="Nom" required>
+                <input type="text" id="place-description" placeholder="Description" required>
+                <input type="number" id="place-price" placeholder="Prix par nuit" required>
+                <input type="number" id="place-rooms" placeholder="Nombre de chambres" required>
+                <input type="number" id="place-bathrooms" placeholder="Nombre de salles de bain" required>
+                <input type="number" id="place-max-guests" placeholder="Nombre maximal de personnes" required>
+                <button type="submit">Enregistrer la place</button>
+                <button type="button" id="cancel-btn">Annuler</button>
+            </form>
+
+            <div id="places-container"></div>
+        </section>
+        <a href="register.html" class="register-link">Pas de compte ? Inscrivez-vous</a>
+    </main>
+
+    <footer class="footer_ep">
+        <nav>
+            <a href="about.html" class="footer-link">À propos</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+        </nav>
+        <p>© 2024 HBnB - Tous droits non réservés</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Arinhakeo/holbertonschool-hbnb.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+    
+    <script src="../static/js/config.js"></script>
+    <script src="../static/js/utils.js"></script>
+    <script src="../static/js/register.js"></script>
+    <script src="../static/js/place_details.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/script.js"></script>
+    <script>
+        document.getElementById('add-place-btn').addEventListener('click', () => {
+            document.getElementById('place-form').style.display = 'block';
+        });
+
+        document.getElementById('cancel-btn').addEventListener('click', () => {
+            document.getElementById('place-form').style.display = 'none';
+        });
+
+        // Ajouter d'autres logiques pour gérer l'ajout de nouvelles places
+    </script>
+</body>
+</html>

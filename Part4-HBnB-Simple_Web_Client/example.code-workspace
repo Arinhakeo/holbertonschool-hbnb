@@ -1,0 +1,18 @@
+{
+    "folders": [
+        {
+            "uri": "webdav://webdav-arinha-hbnb.alwaysdata.net"
+        }
+    ],
+    "settings": {
+        "jonpfote.webdav-folders": {
+            "webdav-arinha-hbnb.alwaysdata.net": {
+                "host": "webdav-arinha-hbnb.alwaysdata.net",
+                "authtype": "basic", // ou "digest"
+                "username": "arinha-hbnb",
+                "password": "Arinha240479#",
+                "ssl": true // Utiliser HTTPS
+            }
+        }
+    }
+}

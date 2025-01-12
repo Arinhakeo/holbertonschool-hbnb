@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBNB - Places</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html">
+            <img src="../static/images/logo.png" alt="Logo HBnB" class="logo">
+        </a>
+        <h1>Bienvenue sur HBnB</h1>
+        <nav>
+            <button onclick="location.href='login.html'">Se connecter</button>
+            <button onclick="location.href='register.html'">S'inscrire</button>
+        </nav>
+    </header>
+
+    <!-- Filtre de prix -->
+    <div class="price-filter">
+        <label for="price-filter">Prix maximum :</label>
+        <select id="price-filter">
+            <option value="all">Tous les prix</option>
+            <option value="100">Max 100€</option>
+            <option value="150">Max 150€</option>
+            <option value="200">Max 200€</option>
+            <option value="300">Max 300€</option>
+        </select>
+    </div>
+
+    <!-- Grille des places -->
+    <div class="places-grid" id="places-container">
+        <!-- Le JavaScript remplira cette section -->
+    </div>
+
+    <!-- Footer restructuré -->
+    <footer class="footer_ep">
+        <div class="copyright">
+            <p>© 2024 HBnB - Tous droits non réservés</p>
+        </div>
+        <nav>
+            <a href="about.html" class="footer-link">À propos</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+        </nav>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Arinhakeo/holbertonschool-hbnb.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../static/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* ==== STYLE DU CONTENEUR PRINCIPAL ==== */
+/* Ce conteneur englobe tout le formulaire d'inscription */
+.register-container {
+    width: 90%;                          /* Prend 90% de la largeur de l'écran */
+    max-width: 800px;                    /* Ne dépassera jamais 800px de large */
+    margin: 120px auto 150px auto;       /* Marges : haut droite bas gauche (sens horaire) */
+    background-color: white;             /* Fond blanc */
+    padding: 40px;                       /* Espacement intérieur de 40px */
+    border-radius: 15px;                 /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre portée : x y flou couleur */
+}
+
+/* ==== STYLE DU FORMULAIRE ==== */
+/* Contrôle la disposition des éléments dans le formulaire */
+#register-form {
+    display: flex;                       /* Utilise le modèle flexbox */
+    flex-direction: column;              /* Empile les éléments verticalement */
+    gap: 20px;                          /* Espace de 20px entre chaque élément */
+}
+
+/* Style du titre du formulaire */
+#register-form h2 {
+    text-align: center;                  /* Centre le texte */
+    color: #333;                         /* Couleur gris foncé */
+    margin-bottom: 30px;                 /* Espace sous le titre */
+    font-size: 24px;                     /* Taille de la police */
+}
+
+/* ==== STYLE DES GROUPES DE CHAMPS ==== */
+/* Chaque label + input forme un groupe */
+.form-group {
+    display: flex;                       /* Utilise flexbox */
+    flex-direction: column;              /* Empile label au-dessus de l'input */
+    gap: 8px;                           /* Espace entre label et input */
+}
+
+/* Style des étiquettes de champs */
+.form-group label {
+    font-weight: 600;                    /* Épaisseur de la police (semi-gras) */
+    color: #333;                         /* Couleur gris foncé */
+    font-size: 14px;                     /* Taille de la police */
+}
+
+/* ==== STYLE DES CHAMPS DE SAISIE ==== */
+/* S'applique aux champs texte et aux listes déroulantes */
+.form-group input,
+.form-group select {
+    padding: 12px;                       /* Espacement intérieur */
+    border: 1px solid #ddd;              /* Bordure gris clair */
+    border-radius: 8px;                  /* Coins arrondis */
+    font-size: 14px;                     /* Taille de la police */
+    transition: border-color 0.3s ease;  /* Animation douce au survol */
+}
+
+/* Style des champs quand ils sont sélectionnés */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff;               /* Bordure bleue quand sélectionné */
+    outline: none;                       /* Supprime le contour par défaut */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Effet de lueur */
+}
+
+/* ==== STYLE DES CASES À COCHER ==== */
+.checkbox-group {
+    flex-direction: row;                 /* Aligne horizontalement */
+    align-items: center;                 /* Centre verticalement */
+    gap: 10px;                          /* Espace entre la case et le texte */
+}
+
+/* Style de la case à cocher elle-même */
+.checkbox-group input[type="checkbox"] {
+    width: 18px;                         /* Largeur de la case */
+    height: 18px;                        /* Hauteur de la case */
+    cursor: pointer;                     /* Curseur main au survol */
+}
+
+/* ==== STYLE DU BOUTON D'INSCRIPTION ==== */
+.register-button {
+    width: 100%;                         /* Prend toute la largeur */
+    padding: 14px;                       /* Espacement intérieur */
+    background-color: #007bff;           /* Fond bleu */
+    color: white;                        /* Texte blanc */
+    border: none;                        /* Pas de bordure */
+    border-radius: 8px;                  /* Coins arrondis */
+    font-size: 16px;                     /* Taille de la police */
+    cursor: pointer;                     /* Curseur main au survol */
+    transition: background-color 0.3s ease; /* Animation au survol */
+}
+
+/* Effet au survol du bouton */
+.register-button:hover {
+    background-color: #0056b3;           /* Bleu plus foncé au survol */
+}
+
+/* ==== ADAPTATION MOBILE ==== */
+/* Ces styles s'appliquent sur les écrans de moins de 768px */
+@media (max-width: 768px) {
+    .register-container {
+        width: 95%;                      /* Prend plus de largeur sur mobile */
+        padding: 20px;                   /* Moins d'espacement sur mobile */
+        margin: 100px auto 100px auto;   /* Marges réduites sur mobile */
+    }
+}

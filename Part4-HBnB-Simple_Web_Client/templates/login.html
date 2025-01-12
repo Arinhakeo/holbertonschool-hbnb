@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - HBNB</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="../static/images/logo.png" alt="Logo HBnB" class="logo" />
+        </a>
+        <h1>Bienvenue sur HBnB</h1>
+        <nav>
+            <button onclick="location.href='index.html'">Accueil</button>
+            <button onclick="location.href='register.html'">S'inscrire</button>
+            <!-- Pour register.html, remplacez le bouton S'inscrire par Se connecter -->
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="login-container">
+            <h1>Connexion</h1>
+            <form id="login-form">
+                <label for="email">Email :</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="votre-email@exemple.com"
+                />
+                
+                <label for="password">Mot de passe :</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                    placeholder="********"
+                />
+                
+                <button type="submit">Se connecter</button>
+            </form>
+            <a href="register.html" class="register-link">Pas de compte ? Inscrivez-vous</a>
+        </div>
+    </div>
+
+    <footer class="footer_ep">
+        <nav>
+            <a href="about.html" class="footer-link">À propos</a>
+            <a href="contact.html" class="footer-link">Contact</a>
+        </nav>
+        <p>© 2024 HBnB - Tous droits non réservés</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Arinhakeo/holbertonschool-hbnb.git" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script src="../static/js/config.js"></script>
+    <script src="../static/js/utils.js"></script>
+    <script src="../static/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+/* ==== CONTENEUR PRINCIPAL DE LA PAGE ==== */
+.home-page {
+    margin-top: 100px;           /* Espace pour le header fixe */
+    margin-bottom: 150px;        /* Espace pour le footer fixe */
+    padding: 20px;              /* Espace interne */
+}
+
+/* ==== STYLE DU HEADER ==== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    z-index: 1000;                    /* S'assure que le header reste au-dessus */
+    height: 80px;                     /* Hauteur fixe du header */
+}
+
+/* ==== STYLE DU FILTRE DE PRIX ==== */
+/* Barre de filtre positionnée sous le header fixe */
+.price-filter {
+    background: white;
+    padding: 15px;
+    margin: 100px 20px 20px 20px;    /* 100px en haut pour le header */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 100;                    /* Au-dessus des places mais sous le header */
+}
+
+/* ==== STYLE DU FOOTER ==== */
+.footer_ep {
+    background-color: white;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;                      /* Permet l'alignement horizontal */
+    justify-content: space-between;     /* Répartit les éléments */
+    align-items: center;                /* Centre verticalement */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/* Copyright à gauche */
+.footer_ep .copyright {
+    flex: 1;                           /* Prend 1/3 de l'espace */
+    text-align: left;
+}
+
+/* Navigation au centre */
+.footer_ep nav {
+    flex: 1;                           /* Prend 1/3 de l'espace */
+    text-align: center;
+}
+
+/* Liens sociaux à droite */
+.footer_ep .social-links {
+    flex: 1;                           /* Prend 1/3 de l'espace */
+    text-align: right;
+}
+/* ==== STYLES POUR LA PAGE D'ACCUEIL (PLACES) ==== */
+
+/* Configuration de la grille principale qui contient toutes les places
+   Cette grille utilise CSS Grid pour organiser les cartes en 3 colonnes */
+   .places-grid {
+    display: grid;                                /* Active le mode grille CSS */
+    grid-template-columns: repeat(3, 1fr);        /* Crée 3 colonnes de taille égale */
+    gap: 30px;                                   /* Espace entre les cartes */
+    width: 90%;                                  /* Prend 90% de la largeur disponible */
+    max-width: 1200px;                            /* Largeur maximale pour grands écrans */
+    padding-bottom: 100px;                         /* Espace supplémentaire en bas */
+    margin: 20px auto 120px auto;                   /* 120px en bas pour le footer */
+    position: relative;                             /* Pour bon positionnement */
+}
+
+/* Style de chaque carte individuelle de place
+   Chaque carte est un conteneur flex pour organiser son contenu verticalement */
+.place {
+    background: white;                           /* Fond blanc */
+    border-radius: 10px;                         /* Coins arrondis */
+    padding: 20px;                               /* Espace intérieur */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);      /* Ombre légère pour effet de profondeur */
+    text-align: left;                            /* Alignement du texte à gauche */
+    display: flex;                               /* Organisation verticale du contenu */
+    flex-direction: column;                      /* Empilement des éléments */
+    gap: 15px;                                   /* Espace entre les éléments */
+}
+
+/* Zone d'information avec les icônes (personnes, chambres, salles de bain)
+   Utilise flexbox pour aligner les éléments horizontalement */
+.information {
+    display: flex;                               /* Alignement horizontal */
+    justify-content: space-around;               /* Répartit l'espace entre les éléments */
+    padding: 15px 0;                             /* Espace vertical */
+    border-top: 1px solid #ddd;                  /* Ligne de séparation haute */
+    border-bottom: 1px solid #ddd;               /* Ligne de séparation basse */
+    margin: 10px 0;                              /* Marge verticale */
+}
+
+/* Style du prix par nuit
+   Mise en évidence avec une couleur et taille spécifiques */
+.price_by_night {
+    color: #FF5A5F;                             /* Rouge spécifique à l'application */
+    font-size: 24px;                            /* Grande taille de police */
+    font-weight: bold;                          /* Texte en gras */
+}
+
+/* Zone des boutons d'action
+   Positionnée en bas de la carte */
+.actions {
+    margin-top: auto;                           /* Force le positionnement en bas */
+}
+
+/* Style du bouton d'action */
+.actions button {
+    width: 100%;                                /* Prend toute la largeur */
+    padding: 10px;                              /* Espacement intérieur */
+    background-color: #007bff;                  /* Bleu */
+    color: white;                               /* Texte blanc */
+    border: none;                               /* Pas de bordure */
+    border-radius: 5px;                         /* Coins arrondis */
+    cursor: pointer;                            /* Curseur main au survol */
+}
+
+/* ==== ADAPTATIONS POUR DIFFÉRENTES TAILLES D'ÉCRAN ==== */
+
+/* Pour les tablettes */
+@media (max-width: 1200px) {
+    .places-grid {
+        grid-template-columns: repeat(2, 1fr);   /* Passe à 2 colonnes */
+    }
+}
+
+/* Pour les mobiles */
+@media (max-width: 768px) {
+    .places-grid {
+        grid-template-columns: 1fr;              /* Une seule colonne */
+        width: 95%;                              /* Légèrement plus large */
+        gap: 20px;                               /* Espace réduit entre les cartes */
+    }
+}

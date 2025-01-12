@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À propos de HBnB</title>
+    <!-- Lien CDN pour Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Styles intégrés directement dans la page -->
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 255, 255);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Prend toute la hauteur de la vue */
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .logo {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .tooltip {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            margin-top: 60px;
+        }
+
+        .logo-container:hover .tooltip {
+            visibility: visible;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        .register-link {
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .register-link:hover {
+            background-color: #005bb5;
+        }
+
+        /* Contenu principal */
+        .semi-transparent {
+            background-color: rgba(253, 222, 189, 0.9);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Prend l'espace disponible */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .container p {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+            margin-top: auto; /* Pousse le footer vers le bas */
+        }
+
+        .footer_ep {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            margin: 0 auto;
+        }
+
+        .footer_ep nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0073e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="semi-transparent">
+        <header class="header">
+            <a href="index.html" class="logo-container">
+                <span class="tooltip">Retour à l'accueil</span>
+                <img src="../static/images/logo.png" alt="Logo HBnB" class="logo" />
+            </a>
+            <h1>À propos de HBnB</h1>
+            <nav>
+                <button onclick="location.href='login.html'" class="register-link">Se connecter</button>
+                <button onclick="location.href='register.html'" class="register-link">S'inscrire</button>
+            </nav>
+        </header>
+    </div>
+
+    <div class="semi-transparent">
+        <div class="container">
+            <p>HBnB est une plateforme que j'ai développée dans le cadre d'un projet étudiant, visant à simuler une véritable expérience de réservation d'hébergement. Mon objectif principal est de créer un site qui ressemble à une plateforme commerciale tout en offrant une interface fluide et agréable pour l'utilisateur.</p>
+
+            <p>Chaque élément du site a été pensé pour refléter les standards d'une vraie plateforme de réservation. Les présentations des annonces, les fonctionnalités de recherche et de filtrage, ainsi que la navigation sont conçues pour imiter les pratiques du secteur. Cela permet aux utilisateurs de se sentir en confiance et de naviguer facilement, comme ils le feraient sur un site professionnel.</p>
+
+            <p>Je crois que la qualité de l'expérience utilisateur est cruciale. C'est pourquoi j'ai intégré des éléments interactifs et visuels pour rendre la navigation intuitive et agréable. Ce projet n'est pas simplement un exercice académique, mais une véritable exploration des principes du design web et de l'expérience utilisateur, afin de me préparer à des défis réels dans le monde professionnel.</p>
+
+            <p>En somme, HBnB est une initiative qui allie apprentissage et pratique, tout en offrant une plateforme qui, dans un contexte réel, pourrait répondre aux besoins des voyageurs et des hôtes. C'est un projet passionnant qui met l'accent sur l'innovation et la convivialité.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer_ep">
+            <nav>
+                <a href="about.html" class="footer-link">À propos</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </nav>
+            <p>© 2024 HBnB - Tous droits non réservés</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/Arinhakeo/holbertonschool-hbnb.git" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

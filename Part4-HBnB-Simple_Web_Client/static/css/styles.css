@@ -1,0 +1,132 @@
+/* ==== RÉINITIALISATION DES STYLES DE BASE ==== */
+* {
+    box-sizing: border-box;              /* Inclut padding et bordure dans la largeur totale */
+    margin: 0;                           /* Supprime les marges par défaut */
+    padding: 0;                          /* Supprime les paddings par défaut */
+    font-family: Arial, sans-serif;      /* Police par défaut */
+}
+
+/* ==== CONFIGURATION DE BASE DU CORPS ET HTML ==== */
+body, html {
+    height: 100%;                        /* Force la hauteur à 100% de la fenêtre */
+    background-color: #ffeabe;           /* Couleur de fond beige clair */
+}
+
+/* ==== STYLE DU HEADER GLOBAL ==== */
+.header {
+    margin-bottom: 50px;
+    display: flex;               /* Disposition flexible */
+    align-items: center;         /* Alignement vertical au centre */
+    justify-content: space-between; /* Espace entre les éléments */
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(0, 0, 0);
+    padding: 0px;
+    position: fixed;             /* Position fixe en haut */
+    top: 0;
+    left: 0;
+    z-index: 1000;              /* Reste au-dessus des autres éléments */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Logo dans le header */
+.header .logo {
+    height: 60px;
+    margin-left: 1rem;
+}
+
+/* Titre dans le header */
+.header h1 {
+    font-size: 24px;            /* Taille du titre */
+    margin: 0;                  /* Retire les marges par défaut */
+}
+
+/* Boutons de navigation */
+.header nav button {
+    padding: 10px 20px;
+    background-color: #05ad4d;  /* Vert comme dans l'index */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.header nav button:hover {
+    background-color: #2e2b68;  /* Couleur au survol */
+}
+
+/* ==== STYLE DU FOOTER GLOBAL ==== */
+/* Footer fixé en bas avec disposition en trois colonnes */
+.footer_ep {
+    background-color: white;
+    padding: 20px;
+    position: fixed;           /* Fixe le footer en bas */
+    bottom: 0;                /* Colle au bas de la fenêtre */
+    left: 0;                  /* Aligne à gauche */
+    width: 100%;             /* Prend toute la largeur */
+    display: flex;           /* Permet la disposition en 3 colonnes */
+    justify-content: space-between;  /* Espace entre les éléments */
+    align-items: center;     /* Centre verticalement */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);  /* Ombre au-dessus */
+    z-index: 1000;          /* Assure qu'il reste au-dessus du contenu */
+}
+
+/* Zone copyright (gauche) */
+.footer_ep .copyright {
+    flex: 1;                /* Prend un tiers de l'espace */
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Zone navigation (centre) */
+.footer_ep nav {
+    flex: 1;                /* Prend un tiers de l'espace */
+    text-align: center;
+}
+
+/* Liens du footer */
+.footer_ep nav .footer-link {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+/* Zone réseaux sociaux (droite) */
+.footer_ep .social-links {
+    flex: 1;               /* Prend un tiers de l'espace */
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Style des icônes de réseaux sociaux */
+.social-links a {
+    margin: 0 10px;
+    color: #333;
+    font-size: 20px;
+}
+
+/* Effet au survol des liens */
+.footer_ep nav .footer-link:hover,
+.social-links a:hover {
+    color: #007bff;
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;          /* Empile les éléments sur mobile */
+        padding: 10px;                   /* Réduit le padding */
+    }
+
+    .header .logo {
+        margin-bottom: 10px;             /* Espace sous le logo */
+    }
+
+    .social-links {
+        display: flex;                   /* Flexbox pour les icônes */
+        justify-content: center;         /* Centre les icônes */
+        flex-wrap: wrap;                 /* Permet le retour à la ligne */
+        gap: 10px;                       /* Espace entre les icônes */
+    }
+}

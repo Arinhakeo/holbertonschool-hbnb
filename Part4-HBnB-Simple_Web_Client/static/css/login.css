@@ -1,0 +1,94 @@
+/* ==== STYLE DU CONTENEUR PRINCIPAL ==== */
+.content-wrapper {
+    min-height: 100vh;            /* Prend toute la hauteur de la fenêtre */
+    display: flex;                /* Utilise flexbox pour le centrage */
+    justify-content: center;      /* Centre horizontalement */
+    align-items: center;          /* Centre verticalement */
+    padding: 100px 20px;         /* Espace pour le header et padding sur les côtés */
+}
+
+/* ==== STYLE DU CONTENEUR DE CONNEXION ==== */
+.login-container {
+    width: 90%;                  /* Prend 90% de la largeur du parent */
+    max-width: 400px;            /* Largeur maximale de 400px */
+    background-color: white;      /* Fond blanc */
+    padding: 40px;               /* Espace intérieur */
+    border-radius: 10px;         /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Titre du formulaire */
+.login-container h1 {
+    text-align: center;          /* Centre le titre */
+    margin-bottom: 30px;         /* Espace sous le titre */
+    color: #333;                /* Couleur gris foncé */
+}
+
+/* Style du formulaire */
+#login-form {
+    display: flex;               /* Utilise flexbox */
+    flex-direction: column;      /* Empile les éléments verticalement */
+    gap: 15px;                  /* Espace entre les éléments */
+}
+
+/* Style des labels */
+#login-form label {
+    font-weight: bold;          /* Texte en gras */
+    color: #333;               /* Couleur gris foncé */
+}
+
+/* Style des champs de saisie */
+#login-form input {
+    padding: 12px;              /* Espace intérieur */
+    border: 1px solid #ddd;     /* Bordure gris clair */
+    border-radius: 5px;         /* Coins arrondis */
+    font-size: 14px;           /* Taille de police */
+}
+
+/* Style au focus des champs */
+#login-form input:focus {
+    outline: none;              /* Retire le contour par défaut */
+    border-color: #007bff;      /* Bordure bleue */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Effet de lueur */
+}
+
+/* Style du bouton de connexion */
+#login-form button {
+    background-color: #007bff;   /* Fond bleu */
+    color: white;               /* Texte blanc */
+    padding: 12px;              /* Espace intérieur */
+    border: none;              /* Pas de bordure */
+    border-radius: 5px;         /* Coins arrondis */
+    cursor: pointer;           /* Curseur main au survol */
+    font-size: 16px;           /* Taille de police */
+    margin-top: 10px;          /* Espace au-dessus */
+}
+
+/* Effet au survol du bouton */
+#login-form button:hover {
+    background-color: #0056b3;  /* Bleu plus foncé au survol */
+}
+
+/* Style du lien d'inscription */
+.register-link {
+    display: block;             /* Prend toute la largeur */
+    text-align: center;         /* Centre le texte */
+    margin-top: 20px;          /* Espace au-dessus */
+    color: #666;              /* Couleur gris moyen */
+    text-decoration: none;     /* Pas de soulignement */
+    font-size: 14px;          /* Taille de police plus petite */
+}
+
+/* Effet au survol du lien */
+.register-link:hover {
+    color: #007bff;            /* Devient bleu au survol */
+    text-decoration: underline; /* Soulignement au survol */
+}
+
+/* ==== RESPONSIVE DESIGN ==== */
+@media (max-width: 768px) {
+    .login-container {
+        width: 95%;            /* Plus large sur mobile */
+        padding: 30px;         /* Moins d'espace intérieur */
+    }
+}
